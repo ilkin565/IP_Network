@@ -41,12 +41,15 @@
 			this.labelBroadcastAddress = new System.Windows.Forms.Label();
 			this.labelIPAddressCount = new System.Windows.Forms.Label();
 			this.labelHostCount = new System.Windows.Forms.Label();
+			this.numericUpDownPrefix = new System.Windows.Forms.NumericUpDown();
+			this.labelPrefix = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrefix)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// buttonCalculate
 			// 
 			this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonCalculate.Location = new System.Drawing.Point(14, 90);
+			this.buttonCalculate.Location = new System.Drawing.Point(14, 131);
 			this.buttonCalculate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.buttonCalculate.Name = "buttonCalculate";
 			this.buttonCalculate.Size = new System.Drawing.Size(239, 23);
@@ -75,7 +78,7 @@
 			// 
 			// textBoxNetworkAddres
 			// 
-			this.textBoxNetworkAddres.Location = new System.Drawing.Point(14, 142);
+			this.textBoxNetworkAddres.Location = new System.Drawing.Point(14, 175);
 			this.textBoxNetworkAddres.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.textBoxNetworkAddres.Name = "textBoxNetworkAddres";
 			this.textBoxNetworkAddres.Size = new System.Drawing.Size(238, 20);
@@ -83,7 +86,7 @@
 			// 
 			// textBoxBroadcastAddress
 			// 
-			this.textBoxBroadcastAddress.Location = new System.Drawing.Point(14, 181);
+			this.textBoxBroadcastAddress.Location = new System.Drawing.Point(14, 216);
 			this.textBoxBroadcastAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.textBoxBroadcastAddress.Name = "textBoxBroadcastAddress";
 			this.textBoxBroadcastAddress.Size = new System.Drawing.Size(238, 20);
@@ -91,7 +94,7 @@
 			// 
 			// textBoxIPAddressCount
 			// 
-			this.textBoxIPAddressCount.Location = new System.Drawing.Point(14, 220);
+			this.textBoxIPAddressCount.Location = new System.Drawing.Point(14, 257);
 			this.textBoxIPAddressCount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.textBoxIPAddressCount.Name = "textBoxIPAddressCount";
 			this.textBoxIPAddressCount.Size = new System.Drawing.Size(238, 20);
@@ -99,7 +102,7 @@
 			// 
 			// textBoxHostCount
 			// 
-			this.textBoxHostCount.Location = new System.Drawing.Point(14, 259);
+			this.textBoxHostCount.Location = new System.Drawing.Point(14, 298);
 			this.textBoxHostCount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.textBoxHostCount.Name = "textBoxHostCount";
 			this.textBoxHostCount.Size = new System.Drawing.Size(238, 20);
@@ -128,7 +131,7 @@
 			// 
 			this.labelNetworkAddres.AutoSize = true;
 			this.labelNetworkAddres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelNetworkAddres.Location = new System.Drawing.Point(14, 126);
+			this.labelNetworkAddres.Location = new System.Drawing.Point(14, 157);
 			this.labelNetworkAddres.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.labelNetworkAddres.Name = "labelNetworkAddres";
 			this.labelNetworkAddres.Size = new System.Drawing.Size(107, 15);
@@ -139,7 +142,7 @@
 			// 
 			this.labelBroadcastAddress.AutoSize = true;
 			this.labelBroadcastAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelBroadcastAddress.Location = new System.Drawing.Point(14, 165);
+			this.labelBroadcastAddress.Location = new System.Drawing.Point(14, 198);
 			this.labelBroadcastAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.labelBroadcastAddress.Name = "labelBroadcastAddress";
 			this.labelBroadcastAddress.Size = new System.Drawing.Size(126, 15);
@@ -150,7 +153,7 @@
 			// 
 			this.labelIPAddressCount.AutoSize = true;
 			this.labelIPAddressCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelIPAddressCount.Location = new System.Drawing.Point(14, 204);
+			this.labelIPAddressCount.Location = new System.Drawing.Point(14, 239);
 			this.labelIPAddressCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.labelIPAddressCount.Name = "labelIPAddressCount";
 			this.labelIPAddressCount.Size = new System.Drawing.Size(115, 15);
@@ -161,18 +164,38 @@
 			// 
 			this.labelHostCount.AutoSize = true;
 			this.labelHostCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelHostCount.Location = new System.Drawing.Point(14, 243);
+			this.labelHostCount.Location = new System.Drawing.Point(14, 280);
 			this.labelHostCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.labelHostCount.Name = "labelHostCount";
 			this.labelHostCount.Size = new System.Drawing.Size(75, 15);
 			this.labelHostCount.TabIndex = 13;
 			this.labelHostCount.Text = "Host count";
 			// 
+			// numericUpDownPrefix
+			// 
+			this.numericUpDownPrefix.Location = new System.Drawing.Point(14, 105);
+			this.numericUpDownPrefix.Name = "numericUpDownPrefix";
+			this.numericUpDownPrefix.Size = new System.Drawing.Size(107, 20);
+			this.numericUpDownPrefix.TabIndex = 14;
+			// 
+			// labelPrefix
+			// 
+			this.labelPrefix.AutoSize = true;
+			this.labelPrefix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.labelPrefix.Location = new System.Drawing.Point(14, 87);
+			this.labelPrefix.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.labelPrefix.Name = "labelPrefix";
+			this.labelPrefix.Size = new System.Drawing.Size(44, 15);
+			this.labelPrefix.TabIndex = 15;
+			this.labelPrefix.Text = "Prefix";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(267, 292);
+			this.ClientSize = new System.Drawing.Size(267, 329);
+			this.Controls.Add(this.labelPrefix);
+			this.Controls.Add(this.numericUpDownPrefix);
 			this.Controls.Add(this.labelHostCount);
 			this.Controls.Add(this.labelIPAddressCount);
 			this.Controls.Add(this.labelBroadcastAddress);
@@ -191,6 +214,7 @@
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "IP Network";
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrefix)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -211,6 +235,8 @@
 		private System.Windows.Forms.Label labelBroadcastAddress;
 		private System.Windows.Forms.Label labelIPAddressCount;
 		private System.Windows.Forms.Label labelHostCount;
+		private System.Windows.Forms.NumericUpDown numericUpDownPrefix;
+		private System.Windows.Forms.Label labelPrefix;
 	}
 }
 

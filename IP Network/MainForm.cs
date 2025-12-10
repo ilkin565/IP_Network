@@ -16,6 +16,9 @@ namespace IP_Network
 		{
 			InitializeComponent();
 			buttonCalculate.Click += CalculateNetworkInfo;
+			numericUpDownPrefix.ValueChanged += UpdateMaskFromPrefix;
+			textBoxMask.TextChanged += UpdatePrefixFromMask;
+			UpdatePrefixFromMask(null, EventArgs.Empty);
 		}
 
 		private void CalculateNetworkInfo(object sender, EventArgs e)
@@ -52,6 +55,77 @@ namespace IP_Network
 		private string UintToIP(uint ip)
 		{
 			return $"{(ip >> 24) & 0xFF}.{(ip >> 16) & 0xFF}.{(ip >> 8) & 0xFF}.{ip & 0xFF}";
+		}
+
+		private void UpdateMaskFromPrefix(object sender, EventArgs e)
+		{
+			int prefix = (int)numericUpDownPrefix.Value;
+			uint mask = PrefixToMask(prefix);
+			textBoxMask.TextChanged -= UpdatePrefixFromMask;
+			textBoxMask.Text = UintToIP(mask);
+			textBoxMask.TextChanged += UpdatePrefixFromMask;
+		}
+
+		private void UpdatePrefixFromMask(object sender, EventArgs e)
+		{
+			try
+			{
+				uint mask = IPToUint(textBoxMask.Text);
+				int prefix = MaskToPrefix(mask);
+				numericUpDownPrefix.ValueChanged -= UpdateMaskFromPrefix;
+				numericUpDownPrefix.Value = prefix;
+				numericUpDownPrefix.ValueChanged += UpdateMaskFromPrefix;
+			}
+			catch
+			{
+
+			}
+		}
+
+		private uint PrefixToMask(int prefix)
+		{
+			if (prefix < 0 || prefix > 32)
+				return 0xFFFFFFFF;
+
+			if (prefix == 0) return 0;
+
+			uint mask = 0xFFFFFFFF << (32 - prefix);
+			return mask;
+		}
+
+		private int MaskToPrefix(uint mask)
+		{
+			uint check = mask;
+			bool valid = true;
+			bool foundZero = false;
+
+			for (int i = 31; i >= 0; i--)
+			{
+				uint bit = (mask >> i) & 1;
+				if (bit == 0)
+				{
+					foundZero = true;
+				}
+				else if (foundZero)
+				{
+					valid = false;
+					break;
+				}
+			}
+
+			if (!valid)
+			{
+				MessageBox.Show("Неверная маска подсети");
+				return 32;
+			}
+
+			int prefix = 0;
+			while ((mask & 0x80000000) != 0)
+			{
+				prefix++;
+				mask <<= 1;
+			}
+			return prefix;
 		}
 	}
 }
